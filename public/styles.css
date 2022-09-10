@@ -267,8 +267,8 @@ main{
            rgba(0, 0, 0, 0.353), 
            10%,
            rgba(0, 0, 0, 0) , 
-           20%,
-           rgba(0, 0, 0, 0.511) 25%,
+           25%,
+           rgba(0, 0, 0, 0.511) 30%,
            rgb(0, 0, 0) 40%  ),
         url("/images/pixar-background.jpg");
         background-repeat: no-repeat;
