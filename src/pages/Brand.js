@@ -1,6 +1,7 @@
 import React from "react"
 import { ThemeContext } from "../context"
 import FilmImage from "../components/FilmImage"
+import ScrollDarken from "../components/ScrollDarken"
 import { useParams } from "react-router-dom"
 
 export default function Brand() {
@@ -12,19 +13,16 @@ export default function Brand() {
         context.toggleChannel(brand)
     },[])
 
-    const darken =  (context.scrolled < 100) ? "overlayLight" :
-    (context.scrolled < 300) ? "overlayMedium" : 
-    (context.scrolled < 500) ? "overlayDarker" :
-    "overlayDarkest"
-
     const films = context.movies[brand]
     const filmsElements = films.map(film => {
         return (
             <FilmImage film={film} key={film.imdbID}/>
     )})
+    
+    const scrollDarken = ScrollDarken()
 
     return(
-        <main className={`${darken}`}> 
+        <main className={scrollDarken}> 
             <div className="heroEmpty"></div>
             <div className="container">
                 <div className="filmsContainer">

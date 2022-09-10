@@ -168,26 +168,35 @@ main{
 }
 .overlayDarkest{
     background-color: rgba(0, 0, 0, 0.693);
-    transition: background 0.6s;
+    transition: background 1s;
 }
 .overlayDarker{
     background-color: rgba(0, 0, 0, 0.419);
-    transition: background 0.6s;
+    transition: background 1s;
 }
 .overlayMedium{
     background-color: rgba(0, 0, 0, 0.196);
-    transition: background 0.3s;
+    transition: background 1s;
 }
 .overlayLight{
     background-color: transparent;
-    transition: background 0.3s;
+    transition: background 1s;
 }
 
 /* ----------  HOME LAYOUT ---------- */
 
 /* ---------- HERO ---------- */
+/* .container {
+    width: 90%;
+    padding-bottom: 100px;
+    position: relative;
+} */
 .heroEmpty {
-    height:500px;
+    height:550px;
+}
+.carousel {
+    width: 100%;
+    position: relative;
 }
 .heroImg {
     border-radius: 2px;
@@ -197,12 +206,29 @@ main{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     outline:5px solid #dfdfdf00;
 }
-
 .heroImg:hover {
     outline:5px solid #dfdfdfde;
     transition: outline 0.2s ease-out;
 }
-
+.carousel-actions{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: absolute;
+    top: 32%;
+}
+.carousel-actions button {
+    margin:0.1em;
+    cursor: pointer;
+    border:none;
+    color:#fff;
+    font-size:4rem;
+    background-color: rgba(0, 0, 0, 0);
+    text-shadow: 0px 0px 5px black;
+}
+.carousel-actions button:hover {
+    transform: scale(1.1);
+}
 /* ---------- CHANNEL MENU ---------- */
 
 .channelMenu {
@@ -210,9 +236,8 @@ main{
     justify-content: space-between;
     padding: 50px 0;
 }
-
 .channelBtn img {
-    width:300px;
+    width:200px;
     margin:0px;
     object-fit: cover;
     background-image: linear-gradient(rgb(58, 60, 74), rgb(36, 38, 50));
@@ -231,8 +256,9 @@ main{
 /* ---------- FILMS LIST ---------- */
 
 .container {
-    width: 90vw;
+    width: 90%;
     padding-bottom: 100px;
+    position: relative;
 }
 .filmsContainer {
     display: grid;
@@ -307,13 +333,18 @@ main{
         transform:translateY(-5px) rotate(-45deg) ;
         transition: transform 250ms;
     }
-
     .moveDown{
         transform:translateY(120px);
         transition: transform 150ms;
     }
     .heroEmpty {
         height:250px;
+    }
+    .carousel-actions{
+        top: 17.5%;
+    }
+    .carousel-actions button {
+        font-size:2rem;
     }
     .channelMenu {
         align-items: center;

@@ -6,9 +6,41 @@ export default function Hero() {
     const context = React.useContext(ThemeContext)
     const channel = context.channel
 
+
+    //slides code ==========================================
+    const [slidePosition, setSlidePosition] = React.useState(0)
+    const slides = ["./images/caroussel-1.jpg", "./images/caroussel-2.jpg"]
+    const totalSlides = slides.length
+
+    function nextSlide(){
+        if (slidePosition === totalSlides-1) {
+            setSlidePosition(0)
+        } else {
+            setSlidePosition(prev => prev + 1)
+        }
+    }
+
+    function prevSlide(){
+        if (slidePosition === 0) {
+            setSlidePosition(totalSlides-1)
+        } else {
+            setSlidePosition(prev => prev - 1)
+        }
+    }
+
+    console.log(slidePosition)
+    //slides code ==========================================
+ 
+
     return(
         <div className="container">
-            <img className="heroImg" src="./images/caroussel-1.jpg" />
+            <div className="caroussel">
+                <img className="heroImg" src={slides[slidePosition]} />
+                <div className="carousel-actions">
+                    <button onClick={prevSlide} id="prevBtn"><i className="fa-sharp fa-solid fa-chevron-left"></i></button>
+                    <button onClick={nextSlide} id="nextBtn"><i className="fa-sharp fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
             <ChannelMenu />
         </div> 
     )
