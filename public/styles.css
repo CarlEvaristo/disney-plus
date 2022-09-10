@@ -166,8 +166,11 @@ main{
     justify-content: flex-start;
     align-items: center;
 }
-
-.overlayDark{
+.overlayDarkest{
+    background-color: rgba(0, 0, 0, 0.693);
+    transition: background 0.6s;
+}
+.overlayDarker{
     background-color: rgba(0, 0, 0, 0.419);
     transition: background 0.6s;
 }

@@ -11,7 +11,8 @@ export default function Home() {
 
     const darken =  (context.scrolled < 100) ? "overlayLight" :
     (context.scrolled < 300) ? "overlayMedium" : 
-    "overlayDark"
+    (context.scrolled < 500) ? "overlayDarker" :
+    "overlayDarkest"
 
     return(
         <main className={`${darken}`}> 
