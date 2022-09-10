@@ -14,7 +14,8 @@ export default function Brand() {
 
     const darken =  (context.scrolled < 100) ? "overlayLight" :
     (context.scrolled < 300) ? "overlayMedium" : 
-    "overlayDark"
+    (context.scrolled < 500) ? "overlayDarker" :
+    "overlayDarkest"
 
     const films = context.movies[brand]
     const filmsElements = films.map(film => {
