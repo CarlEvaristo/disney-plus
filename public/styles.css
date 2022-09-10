@@ -1,4 +1,6 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 html{
@@ -8,7 +10,31 @@ body{
     margin:0;
     font-size: 16px;
     font-family: 'Noto Sans', sans-serif;
-    
+    background-color: #000;
+}
+#id{
+    width:100vw;
+    height:100vh;
+}
+a{
+    text-decoration: none;
+}
+.background {
+    background:
+    linear-gradient(to bottom,
+       rgba(0, 0, 0, 0.74) 10px, 
+       rgba(0, 0, 0, 0.353), 
+       20%,
+       rgba(0, 0, 0, 0) , 
+       50%,
+       rgba(0, 0, 0, 0.17), 
+       rgba(0, 0, 0, 0.511) 80%,
+       rgba(0, 0, 0, 0.81) 90%), #4e5675;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.pixarBg{
     background:
     linear-gradient(to bottom,
        rgba(0, 0, 0, 0.74) 10px, 
@@ -24,13 +50,26 @@ body{
     background-attachment: fixed;
     background-size: cover;
 }
-a{
-    text-decoration: none;
+.disneyBg{
+    background:
+    linear-gradient(to bottom,
+       rgba(0, 0, 0, 0.74) 10px, 
+       rgba(0, 0, 0, 0.353), 
+       20%,
+       rgba(0, 0, 0, 0) , 
+       50%,
+       rgba(0, 0, 0, 0.17), 
+       rgba(0, 0, 0, 0.511) 80%,
+       rgba(0, 0, 0, 0.81) 90%  ),
+    url("/images/disney-background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
-
 /* ----------  HEADER LAYOUT ---------- */
 
 header {
+    z-index: 10;
     position: fixed;
     width:100%;
     top:0;
@@ -102,17 +141,32 @@ header img {
     color:#000;
 }
 
+/* ----------  HAMBURGER MENU ---------- */
+
+.hamburgerBtn{
+    display:none;
+    margin:0 2rem 0 auto;
+    cursor: pointer;
+}
+.hamburgerBar{
+    width: 35px;
+    height:5px;
+    background-color:rgb(251, 251, 251);
+    margin:6px 0;
+    border-radius: 3px;
+}
+
 /* ----------  MAIN LAYOUT ---------- */
 
 main{
-    width:100%;
     min-height:150vh;
-    padding-top:550px;
     background-color: transparent;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
 }
+
 .overlayDark{
     background-color: rgba(0, 0, 0, 0.419);
     transition: background 0.6s;
@@ -127,14 +181,67 @@ main{
 }
 
 /* ----------  HOME LAYOUT ---------- */
+
+/* ---------- HERO ---------- */
+.heroEmpty {
+    height:500px;
+}
+.heroImg {
+    border-radius: 2px;
+    margin-top: 100px;
+    width:100%;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    outline:5px solid #dfdfdf00;
+}
+
+.heroImg:hover {
+    outline:5px solid #dfdfdfde;
+    transition: outline 0.2s ease-out;
+}
+
+/* ---------- CHANNEL MENU ---------- */
+
+.channelMenu {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 50px 0;
+}
+
+.channelBtn img {
+    width:300px;
+    margin:0px;
+    object-fit: cover;
+    background-image: linear-gradient(rgb(58, 60, 74), rgb(36, 38, 50));
+    border-radius: 6px;
+    box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+    cursor: pointer;
+    border-radius:10px;
+    outline:3px solid #42444f;
+}
+.channelBtn img:hover {
+    outline:3px solid #ffffff;
+    transform: scale(1.05);
+    transition: transform 0.2s ease-out, outline 0.2s ease-out;
+}
+
+/* ---------- FILMS LIST ---------- */
+
+.container {
+    width: 90vw;
+    padding-bottom: 100px;
+}
 .filmsContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    justify-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
 }
 .filmBox {
     width: 277px;
-    height:180px;
+    height:400px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     border-radius: 5px;
     overflow: hidden;
@@ -150,5 +257,75 @@ main{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top;
+    object-position: center;
+}
+
+@media (max-width:600px) {
+    .pixarBg{
+        background:
+        linear-gradient(to bottom,
+           rgba(0, 0, 0, 0.74) 10px, 
+           rgba(0, 0, 0, 0.353), 
+           10%,
+           rgba(0, 0, 0, 0) , 
+           30%,
+           rgba(0, 0, 0, 0.511) 35%,
+           rgba(0, 0, 0, 0.81) 45%  ),
+        url("/images/pixar-background.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .background, .disneyBg, .pixarBg {
+        background-size: contain;
+        background-size: 140%;
+        background-position: 50% 0%;
+    }
+    main{
+        min-height:100vh;
+    }
+    .loginBtn  {
+        display:none;
+    }
+    .headerMenu{
+        display: none;
+    }
+    .hamburgerBtn{
+        display:block;
+    }
+    .topBar {
+        transform:translateY(5px) rotate(45deg) ;
+        transition: transform 250ms;
+    }
+    .middleBar {
+        display: none;    
+    }
+    .bottomBar {
+        transform:translateY(-5px) rotate(-45deg) ;
+        transition: transform 250ms;
+    }
+
+    .moveDown{
+        transform:translateY(120px);
+        transition: transform 150ms;
+    }
+    .heroEmpty {
+        height:250px;
+    }
+    .channelMenu {
+        align-items: center;
+        flex-wrap: wrap;
+        gap:25px;
+    }
+    .channelBtn img {
+        width:160px;
+    }
+    .filmsContainer {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .filmBox {
+        width: 150px;
+        height:auto;
+    }
 }

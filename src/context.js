@@ -1,23 +1,46 @@
 import React from "react"
+
 const ThemeContext = React.createContext()
 
+
 function ThemeContextProvider(props) {
-    const [movies, setMovies] = React.useState([])
+    const [movies, setMovies] = React.useState({
+        pixar:[],
+        disney:[],
+        marvel:[],
+        starwars:[]
+    })
     const [scrolled, setScrolled] = React.useState(0)
     const [channel, setChannel] = React.useState(null)
 
-    const pixarMovies = ["Lightyear", "Luca", "Turning Red", "Soul", "Onward", "Coco", "Toy Story 4", "Cars 3", "Incredibles 2", "Inside Out", "The Good Dinosaur", "Finding Dory", "Monsters University", "Brave", "Cars 2", "Ratatouille", "Cars", "WALL-E", "Toy Story 3", "The Incredibles", "Finding Nemo"]
-    // const pixarMovies = ["Lightyear", "Luca", "Turning Red", "Soul"]
 
+    const pixarMovies = ["Lightyear", "Luca", "Turning Red", "Soul", "Onward", "Coco", "Toy Story 4", "Cars 3", "Incredibles 2", "Inside Out", "The Good Dinosaur", "Finding Dory", "Monsters University", "Brave", "Cars 2", "Ratatouille", "Cars", "WALL-E", "Toy Story 3", "The Incredibles", "Finding Nemo"]
+    const disneyMovies = ["Frozen", "Moana", "Encanto", "Lion King", "The Little Mermaid"]
+    
     React.useEffect(()=>{
         pixarMovies.forEach(item => {
             fetch(`https://www.omdbapi.com/?apikey=d5f56738&s=${item}`)
             .then(response => response.json())
-            .then(data => setMovies(prevMovies => [...prevMovies, data.Search[0]]))
+            .then(data => {
+                setMovies(prevMovies => {
+                    return {...prevMovies, pixar: [...prevMovies.pixar, data.Search[0]] } 
+                })
+            })
+            .catch(err => console.log("NOT FOUND, CONTINUE", err))
+        })
+
+        disneyMovies.forEach(item => {
+            fetch(`https://www.omdbapi.com/?apikey=d5f56738&s=${item}`)
+            .then(response => response.json())
+            .then(data => {
+                setMovies(prevMovies => {
+                    return {...prevMovies, disney: [...prevMovies.disney, data.Search[0]] } 
+                })
+            })
+            .catch(err => console.log("NOT FOUND, CONTINUE", err))
         })
 
     },[])
-
 
     // code for the scroll event => header tranparent => hero darker
     function listenScrollEvent(e){
@@ -31,9 +54,12 @@ function ThemeContextProvider(props) {
             window.removeEventListener('scroll', listenScrollEvent);
     }, []);
 
+    function toggleChannel(channel){
+        setChannel(channel)
+    }
 
     return (
-        <ThemeContext.Provider value={{movies, scrolled, channel, setChannel}}>		
+        <ThemeContext.Provider value={{movies, scrolled, channel, toggleChannel}}>		
             {props.children}
         </ThemeContext.Provider>
     )

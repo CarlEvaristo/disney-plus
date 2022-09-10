@@ -1,17 +1,15 @@
 import React from "react"
 import { ThemeContext } from "../context"
+import ChannelMenu from "../components/ChannelMenu"
 
-export default function Hero({content}) {
+export default function Hero() {
     const context = React.useContext(ThemeContext)
-    const bgDarken =  (context.scrolled < 100) ? "overlayLight" :
-                      (context.scrolled < 300) ? "overlayMedium" : 
-                      "overlayDark"
+    const channel = context.channel
 
     return(
-        <main className={bgDarken}>  
-            <div className="filmsContainer">
-                {content}
-            </div>
-        </main>
+        <div className="container">
+            <img className="heroImg" src="./images/caroussel-1.jpg" />
+            <ChannelMenu />
+        </div> 
     )
 }
