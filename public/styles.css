@@ -205,7 +205,6 @@ main{
 .channelMenu {
     display: flex;
     justify-content: space-between;
-    list-style: none;
     padding: 50px 0;
 }
 
@@ -268,9 +267,9 @@ main{
            rgba(0, 0, 0, 0.353), 
            10%,
            rgba(0, 0, 0, 0) , 
-           30%,
-           rgba(0, 0, 0, 0.511) 35%,
-           rgba(0, 0, 0, 0.81) 45%  ),
+           20%,
+           rgba(0, 0, 0, 0.511) 25%,
+           rgb(0, 0, 0) 40%  ),
         url("/images/pixar-background.jpg");
         background-repeat: no-repeat;
         background-attachment: fixed;
