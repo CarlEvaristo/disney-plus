@@ -1,13 +1,16 @@
 import React from "react"
 import { ThemeContext } from "../context"
 import Hero from "../components/Hero"
+import ScrollTop from "../components/ScrollTop"
 
 export default function Home() {
     const context = React.useContext(ThemeContext)
-    
+
     React.useEffect(()=>{
         context.toggleChannel(null)
+        ScrollTop()
     },[])
+
 
     return(
         <main> 

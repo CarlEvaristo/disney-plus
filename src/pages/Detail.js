@@ -1,13 +1,32 @@
 import React from "react"
-import {useParams} from "react-router-dom"
 import { ThemeContext } from "../context"
+import FilmImage from "../components/FilmImage"
+import ScrollDarken from "../components/ScrollDarken"
+import { useParams } from "react-router-dom"
+import ScrollTop from "../components/ScrollTop"
 
-export default function Detail() {
+export default function Brand() {
+
+
     const context = React.useContext(ThemeContext)
-    // console.log(context.movies)
-    const {id} = useParams()   //render details based on movie id 
+    const scrollDarken = ScrollDarken()
 
-    return (
-        <h1>Detail {id}</h1>
+    React.useEffect(()=>{
+        context.toggleChannel(null)
+        ScrollTop()
+    },[])
+
+    const {id} = useParams()
+
+    const film = (context.movies.filter(film => film.imdbID === id ))[0]
+    
+    return(
+        <main className={scrollDarken}> 
+            <div className="detailContainer">
+            <h1>{film.Title}</h1>
+            </div>
+        </main>
     )
-}
+}   
+
+

@@ -288,6 +288,13 @@ main{
     object-position: center;
 }
 
+/* ---------- DETAIL PAGE ---------- */
+
+.detailContainer{
+    margin-top:100px;
+}
+
+
 @media (max-width:600px) {
     .pixarBg{
         background:

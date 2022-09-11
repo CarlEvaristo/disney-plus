@@ -4,12 +4,7 @@ const ThemeContext = React.createContext()
 
 
 function ThemeContextProvider(props) {
-    const [movies, setMovies] = React.useState({
-        pixar:[],
-        disney:[],
-        marvel:[],
-        starwars:[]
-    })
+    const [movies, setMovies] = React.useState([])
     const [scrolled, setScrolled] = React.useState(0)
     const [channel, setChannel] = React.useState(null)
 
@@ -23,7 +18,7 @@ function ThemeContextProvider(props) {
             .then(response => response.json())
             .then(data => {
                 setMovies(prevMovies => {
-                    return {...prevMovies, pixar: [...prevMovies.pixar, data.Search[0]] } 
+                    return [...prevMovies, {...data.Search[0], channel: "pixar" } ] 
                 })
             })
             .catch(err => console.log("NOT FOUND, CONTINUE", err))
@@ -34,7 +29,7 @@ function ThemeContextProvider(props) {
             .then(response => response.json())
             .then(data => {
                 setMovies(prevMovies => {
-                    return {...prevMovies, disney: [...prevMovies.disney, data.Search[0]] } 
+                    return [...prevMovies, {...data.Search[0], channel: "disney" } ] 
                 })
             })
             .catch(err => console.log("NOT FOUND, CONTINUE", err))
