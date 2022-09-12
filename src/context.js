@@ -3,6 +3,7 @@ import React from "react"
 const ThemeContext = React.createContext()
 
 function ThemeContextProvider(props) {
+    const [user, setUser] = React.useState(false)
     const [movies, setMovies] = React.useState([])
     const [scrolled, setScrolled] = React.useState(0)
     const [channel, setChannel] = React.useState(null)
@@ -72,12 +73,10 @@ function ThemeContextProvider(props) {
     },[])
   
 
-    console.log(movies)
     // code for the scroll event => header tranparent => hero darker
     function listenScrollEvent(e){
         setScrolled(window.scrollY)
     }
-
     React.useEffect(() => {
         window.addEventListener('scroll', listenScrollEvent);
         
@@ -90,8 +89,9 @@ function ThemeContextProvider(props) {
         setChannel(channel)
     }
 
+    
     return (
-        <ThemeContext.Provider value={{movies, scrolled, channel, toggleChannel, allFetched}}>		
+        <ThemeContext.Provider value={{movies, scrolled, channel, toggleChannel, allFetched, user, setUser}}>		
             {props.children}
         </ThemeContext.Provider>
     )
@@ -99,24 +99,3 @@ function ThemeContextProvider(props) {
 
 export {ThemeContextProvider, ThemeContext}
 
-
-// async function searchMovies(query) {
-//     const response = await fetch(`https://www.omdbapi.com/?apikey=d5f56738&s=${query}`)
-//     let movieArr = await response.json()
-//     getMovies(movieArr.Search)
-// }
-
-// async function getMovies(array) {
-//     mainContainer.innerHTML = ""
-//     for (let movie of array) {
-//         let response2 = await fetch(`https://www.omdbapi.com/?apikey=d5f56738&i=${movie.imdbID}`)
-//         let data2 = await response2.json()
-//         movie.Rating = data2.imdbRating
-//         movie.Runtime = data2.Runtime
-//         movie.Genre = data2.Genre
-//         movie.Plot = data2.Plot;
-//         (movie.Poster === "N/A") && (movie.Poster = "images/no-image-available.jpg")
-//         searchArray.push(movie)
-//         renderHtml(movie) 
-//     }
-// }

@@ -133,7 +133,7 @@ header img {
     list-style: none;
     padding:0;
 }
-.headerMenu li, .loginBtn {
+.headerMenu li {
     padding: 0 3em 0 0;
     font-size:1.3rem;
     letter-spacing: 1.42px;
@@ -163,15 +163,6 @@ header img {
 .menuIcon{
     margin-right: 0.5em;
 }
-.loginBtn{
-    padding:1em;
-    margin:0 2em 0 auto;
-    background-color: #fff;
-    border-radius: 50%;
-}
-.loginIcon{
-    color:#000;
-}
 
 /* ----------  HAMBURGER MENU ---------- */
 
@@ -191,7 +182,7 @@ header img {
 /* ----------  MAIN LAYOUT ---------- */
 
 main{
-    min-height:150vh;
+    min-height:100vh;
     background-color: transparent;
     display: flex;
     flex-direction: column;
@@ -305,10 +296,10 @@ main{
 .filmBox {
     width: 277px;
     height:400px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.785) 10px 10px 70px 4px;
     border-radius: 5px;
     overflow: hidden;
-    outline: solid 5px rgba(255, 255, 255, 0);
+    outline: solid 1px rgb(255, 255, 255);
     transition: transform 0.3s ease-out, outline 0.3s ease-out;
 }
 .filmBox:hover{
@@ -323,12 +314,97 @@ main{
     object-position: center;
 }
 
+/* ---------- AUTHENTICATION / POP UP ---------- */
+
+
+.login {
+    color:rgb(255, 255, 255);
+    background: none;
+    margin: 0 3em 0 0;
+    font-size: 1.3rem;
+    letter-spacing: 1.22px;
+    line-height: 1.07;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    padding-top:0.5em;
+}
+.login::after {
+    margin-top: 6px;
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    border-radius: 1px;
+    background: rgba(0, 0, 0, 0);
+    transition: width .2s, background .2s;
+}
+.login:hover::after {
+    width: 100%;
+    background: #fff;
+}
+.align-right{
+    justify-content:flex-end;
+}
+.loginPopup {
+    margin:0 3em;
+    color:rgb(255, 255, 255);
+    background: none;
+    margin: 0 3em;
+    font-size: 1.3rem;
+    letter-spacing: 1.22px;
+    line-height: 1.07;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+
+#overlay {
+    position:relative;
+    width:100vw;
+    height:100vh;
+    background: rgba(0, 0, 0, 0.764);
+    z-index:1000;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.popup {
+    z-index:2000;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    width: 500px;
+    height:250px;
+    border-radius:10px;
+    border: #fff 8px solid;
+    box-shadow: 4px 4px 10px black;
+    background-color: #fff;
+}
+.popup button {
+    color: #000;
+    padding: 1em 2em;
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.popup button:hover {
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    transition: box-shadow 0.2s ease-out;
+}
+.popup button:active {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    transition: box-shadow 0.2s ease-out;
+}
+
 /* ---------- DETAIL PAGE ---------- */
 
 .detailContainer{
     margin-top:100px;
+    line-height: 0;
 }
-
 
 @media (max-width:600px) {
     .pixarBg{
@@ -381,9 +457,6 @@ main{
     main{
         min-height:100vh;
     }
-    .loginBtn  {
-        display:none;
-    }
     .headerMenu{
         display: none;
     }
@@ -429,9 +502,10 @@ main{
         width: 150px;
         height:auto;
     }
-    .hoverEffect{
-        outline: solid 5px #fff;
-        transform: scale(1.05);
-        transition: transform 0.3s ease-out, outline 0.3s ease-out;
+    .popup button{
+        width:100%;
+        margin:1em 0;
+        padding-top:1em;
     }
+
 }
