@@ -14,7 +14,7 @@ export default function Header() {
 
     return (
         <header className={headerBgClass}>
-            <img src="/images/disney-plus-logo.png" alt="disney-logo" />
+            <Link to="/"> <img src="/images/disney-plus-logo.png" alt="disney-logo" /> </Link>
             <ul className="headerMenu">
                 <li><Link to="/"><i className="menuIcon fa-solid fa-house fa-sm"></i> <span className="menuItemTxt">HOME</span></Link></li>
                 <li><Link to="/search"><i className="menuIcon fa-solid fa-magnifying-glass fa-sm"></i> <span className="menuItemTxt">SEARCH</span></Link></li>

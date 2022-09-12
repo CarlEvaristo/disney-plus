@@ -1,7 +1,7 @@
 import React from "react"
 import { ThemeContext } from "../context"
 
-export default function ScrollDarken() {
+export default function useScrollDarken() {
     const scrollContext = React.useContext(ThemeContext)
 
     return  (scrollContext.scrolled < 100) ? "overlayLight" :

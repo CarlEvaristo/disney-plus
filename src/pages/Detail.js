@@ -1,7 +1,7 @@
 import React from "react"
 import {useParams} from "react-router-dom"
 import { ThemeContext } from "../context"
-import ScrollTop from "../components/ScrollTop"
+import ScrollTop from "../hooks/useScrollTop"
 
 export default function Detail() {
     const context = React.useContext(ThemeContext)
@@ -15,44 +15,16 @@ export default function Detail() {
         setIdParam(id)
     },[])
 
-    console.log(context.movies[0])
 
-    const film = context.movies[0] !== undefined && (context.movies.filter(film => film.imdbID === idParam ))[0]
+    const film = context.allFetched && (context.movies.filter(film => film.imdbID === idParam ))[0] || {}
+    console.log(film)
 
-    return (
-        <h1>{film.imdbID}</h1>
+    return(
+        <main> 
+            <div className="detailContainer">
+                <h1>{film.Title}</h1>
+            </div>
+        </main>
     )
 }
-
-
-// import React from "react"
-// import { ThemeContext } from "../context"
-// import FilmImage from "../components/FilmImage"
-// import ScrollDarken from "../components/ScrollDarken"
-// import { useParams } from "react-router-dom"
-// import ScrollTop from "../components/ScrollTop"
-
-// export default function Brand() {
-//     const [idParam, setIdParam] = React.useState("")
-
-//     const context = React.useContext(ThemeContext)
-//     const scrollDarken = ScrollDarken()
-//     const {id} = useParams()
-
-//     React.useEffect(()=>{
-//         context.toggleChannel(null)
-//         ScrollTop()
-//     },[])
-    
-//     const film = (context.movies.filter(film => film.imdbID === id ))[0]
-    
-//     return(
-//         <main className={scrollDarken}> 
-//             <div className="detailContainer">
-//             <h1>{film.Title}</h1>
-//             </div>
-//         </main>
-//     )
-// }   
-
 

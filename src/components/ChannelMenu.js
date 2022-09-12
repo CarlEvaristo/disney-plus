@@ -11,8 +11,8 @@ export default function ChannelMenu(){
             <Link to="/brand/:pixar"><span className="channelBtn" ><img src="/images/pixar-btn.png" /></span></Link>
             <Link to="/brand/:marvel"><span className="channelBtn" ><img src="/images/marvel-btn.png" /></span></Link>
             <Link to="/brand/:starwars"><span className="channelBtn" ><img src="/images/starwars-btn.png" /></span></Link>
-            <Link to="/brand/:natgeo"><span className="channelBtn" ><img src="/images/natgeo-btn.png" /></span></Link>
-            <Link to="/brand/:star"><span className="channelBtn" ><img src="/images/star-btn.png" /></span></Link>
+            <Link to=""><span className="channelBtn disabled-link" ><img src="/images/natgeo-btn.png" /></span></Link>
+            <Link to=""><span className="channelBtn disabled-link" ><img src="/images/star-btn.png" /></span></Link>
         </div>
     )
 }
