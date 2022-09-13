@@ -22,10 +22,14 @@ export default function Detail() {
 
     return context.user ? (
         <main> 
-            <div className="detailContainer">
+            <div className="noHero"></div>
+            <div className="container">
                 <h1>{film.Title}</h1>
             </div>
         </main>
     ) : <PopUp />
 }
+
+
+
 

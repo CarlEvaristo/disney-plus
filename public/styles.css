@@ -19,6 +19,14 @@ body{
 a{
     text-decoration: none;
 }
+h1{
+    font-size: 4.5rem;
+    letter-spacing: .11px;
+    color: #f9f9f9;
+    margin: 1em 0;
+    text-align: left;
+}
+
 .background {
     background:
     linear-gradient(to bottom,
@@ -214,6 +222,9 @@ main{
     padding-bottom: 100px;
     position: relative;
 } */
+.noHero {
+    padding-top: 50px;
+}
 .heroEmpty {
     height:550px;
 }
@@ -259,21 +270,38 @@ main{
     justify-content: space-between;
     padding: 50px 0;
 }
-.channelBtn img {
-    width:200px;
-    margin:0px;
-    object-fit: cover;
-    background-image: linear-gradient(rgb(58, 60, 74), rgb(36, 38, 50));
+.btnWrapper{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    position: relative;
+    width: 200px;
+    height:110px;
+    background-image: linear-gradient(rgb(58, 60, 74), rgb(36, 38, 50)); 
     border-radius: 6px;
-    box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
     cursor: pointer;
     border-radius:10px;
     outline:3px solid #42444f;
+    overflow: hidden;
 }
-.channelBtn img:hover {
+.btnWrapper:hover {
     outline:3px solid #ffffff;
     transform: scale(1.05);
     transition: transform 0.2s ease-out, outline 0.2s ease-out;
+}
+.channelBtn {
+    position: absolute;
+}
+.channelBtn img {
+    position: absolute;
+    width:100%;
+}
+.channelBtn video {
+    visibility: hidden;
+    position: relative;
+    width:100%;
+    z-index: -100;
+}
+.channelBtn:hover video {
+    visibility: visible;
 }
 .disabled-link {
     pointer-events: none;
@@ -289,7 +317,7 @@ main{
 .filmsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-    justify-items: center;
+    justify-items: flex-start;
     flex-wrap: wrap;
     gap: 40px;
 }
@@ -492,8 +520,17 @@ main{
         flex-wrap: wrap;
         gap:25px;
     }
+    .channelBtn video {
+        z-index: 100;
+        visibility: visible;
+    }
     .channelBtn img {
+        z-index: 110;
+    }
+    .btnWrapper{
         width:160px;
+        height:90px;
+        background-image: none; 
     }
     .filmsContainer {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
