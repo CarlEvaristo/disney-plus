@@ -88,7 +88,8 @@ function ThemeContextProvider(props) {
     function toggleChannel(channel){
         setChannel(channel)
     }
-
+    
+    console.log(movies)
     
     return (
         <ThemeContext.Provider value={{movies, scrolled, channel, toggleChannel, allFetched, user, setUser}}>		

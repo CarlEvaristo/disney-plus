@@ -31,10 +31,8 @@ h1{
     background:
     linear-gradient(to bottom,
        rgba(0, 0, 0, 0.74) 10px, 
-       rgba(0, 0, 0, 0.353), 
-       20%,
-       rgba(0, 0, 0, 0) , 
-       50%,
+       rgba(0, 0, 0, 0.353) 20%,
+       rgba(0, 0, 0, 0) 50%,
        rgba(0, 0, 0, 0.17), 
        rgba(0, 0, 0, 0.511) 80%,
        rgba(0, 0, 0, 0.81) 90%), #4e5675;
@@ -46,10 +44,8 @@ h1{
     background:
     linear-gradient(to bottom,
        rgba(0, 0, 0, 0.74) 10px, 
-       rgba(0, 0, 0, 0.353), 
-       20%,
-       rgba(0, 0, 0, 0) , 
-       50%,
+       rgba(0, 0, 0, 0.353) 20%,
+       rgba(0, 0, 0, 0) 50%,
        rgba(0, 0, 0, 0.17), 
        rgba(0, 0, 0, 0.511) 80%,
        rgba(0, 0, 0, 0.81) 90%  ),
@@ -109,7 +105,7 @@ h1{
 /* ----------  HEADER LAYOUT ---------- */
 
 header {
-    z-index: 10;
+    z-index: 500;
     position: fixed;
     width:100%;
     top:0;
@@ -137,18 +133,13 @@ header img {
 }
 .headerMenu {
     display:flex;
-    margin:0 auto 0 0;
-    list-style: none;
-    padding:0;
 }
-.headerMenu li {
+.menuItemTxt {
     padding: 0 3em 0 0;
     font-size:1.3rem;
     letter-spacing: 1.42px;
     line-height: 1.07;
     font-weight: 700;
-}
-.menuItemTxt {
     margin-top: 6px;
     display: inline-block;
     color: #fff;
@@ -171,7 +162,6 @@ header img {
 .menuIcon{
     margin-right: 0.5em;
 }
-
 /* ----------  HAMBURGER MENU ---------- */
 
 .hamburgerBtn{
@@ -228,10 +218,7 @@ main{
 .heroEmpty {
     height:550px;
 }
-.carousel {
-    width: 100%;
-    position: relative;
-}
+
 .heroImg {
     border-radius: 2px;
     margin-top: 100px;
@@ -244,15 +231,43 @@ main{
     outline:5px solid #dfdfdfde;
     transition: outline 0.2s ease-out;
 }
+.carousel {
+    border-radius: 2px;
+    margin-top:100px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width:90%;
+    height:320px;
+    outline:5px solid #dfdfdf00;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.carousel:hover {
+    outline:5px solid #dfdfdfde;
+    transition: outline 0.2s ease-out;
+}
+.carousel-item{
+    display: inline-block;
+    width: 100%;
+}
+.carousel-item img{
+    width: 100%;
+    object-fit: cover;
+}
+.carousel-inner{
+    width: 100%;
+    white-space: nowrap;
+    transition: ease 1s;
+}
 .carousel-actions{
     display: flex;
     width: 100%;
     justify-content: space-between;
     position: absolute;
-    top: 32%;
+    top: 29%;
 }
 .carousel-actions button {
-    margin:0.1em;
+    margin:0.5em;
     cursor: pointer;
     border:none;
     color:#fff;
@@ -344,18 +359,17 @@ main{
 
 /* ---------- AUTHENTICATION / POP UP ---------- */
 
-
 .login {
     color:rgb(255, 255, 255);
     background: none;
-    margin: 0 3em 0 0;
+    margin: 0 3em 0 auto;
     font-size: 1.3rem;
-    letter-spacing: 1.22px;
+    letter-spacing: 1.42px;
     line-height: 1.07;
     font-weight: 700;
     border: none;
     cursor: pointer;
-    padding-top:0.5em;
+    margin-top: 6px;
 }
 .login::after {
     margin-top: 6px;
@@ -371,9 +385,7 @@ main{
     width: 100%;
     background: #fff;
 }
-.align-right{
-    justify-content:flex-end;
-}
+
 .loginPopup {
     margin:0 3em;
     color:rgb(255, 255, 255);
@@ -405,7 +417,7 @@ main{
     align-items: center;
     text-align: center;
     width: 500px;
-    height:250px;
+    height:350px;
     border-radius:10px;
     border: #fff 8px solid;
     box-shadow: 4px 4px 10px black;
@@ -486,7 +498,38 @@ main{
         min-height:100vh;
     }
     .headerMenu{
-        display: none;
+        display:none;
+    }
+    .menu{
+        position:absolute;
+        padding: 1em 0;
+        z-index: 10;
+        width: 100%;
+        top:-150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color:#fff;
+        background-color: rgb(0, 0, 0);
+        border-bottom: solid 1px grey;  
+    }
+    .menu.moveDown{
+        box-shadow: rgba(220, 220, 220, 0.251) 0px -40px 30px -10px inset;  
+        top:0px;
+        transform:translateY(60px);
+        transition: transform 0.3s;
+    }
+    .moveDown{
+        transform:translateY(120px);
+        transition: transform 150ms;
+    }
+    .headerBg{
+        background-color: #000;
+        transition: background 0s;
+    }
+    .headerBgGradient{
+        background-color: transparent;
+        transition: background 0s;
     }
     .hamburgerBtn{
         display:block;
@@ -544,5 +587,24 @@ main{
         margin:1em 0;
         padding-top:1em;
     }
-
+    .carousel {
+        height:110px;
+        width:90%;
+    } 
+    .carousel-item {
+        height: 100%;
+    }
+    .carousel-item img {
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+    }
+    .login {
+        margin:0;
+        margin-top:0.5em;
+        font-size:1.2rem;
+    }
+    .menuItemTxt {
+        padding:0;
+    }
 }

@@ -1,6 +1,7 @@
 import React from "react"
 import { ThemeContext } from "../context"
 import ChannelMenu from "../components/ChannelMenu"
+import Caroussel from "./Caroussel"
 
 export default function Hero() {
     const context = React.useContext(ThemeContext)
@@ -33,15 +34,11 @@ export default function Hero() {
  
 
     return(
-        <div className="container">
-            <div className="caroussel">
-                <img className="heroImg" src={slides[slidePosition]} />
-                <div className="carousel-actions">
-                    <button onClick={prevSlide} id="prevBtn"><i className="fa-sharp fa-solid fa-chevron-left"></i></button>
-                    <button onClick={nextSlide} id="nextBtn"><i className="fa-sharp fa-solid fa-chevron-right"></i></button>
-                </div>
-            </div>
-            <ChannelMenu />
-        </div> 
+        <>            
+            <Caroussel/>
+            <div className="container">
+                <ChannelMenu />
+            </div> 
+        </>
     )
 }
