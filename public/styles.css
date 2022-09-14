@@ -407,6 +407,9 @@ input, select, button {
     border:none;
     margin: .5em 0;
 }
+input:focus, select:focus{
+    background-color: #d8f7ff;
+}
 button {
     cursor: pointer;
 }
@@ -415,18 +418,18 @@ button:hover{
 }
 input[type="file"] {
     padding:1em 2em;
-    background-color: #efefef;
+    background-color: #efefef30;
 }
-.custom-upload-btn {
+.custom-upload-btn,button {
     text-align: center;
     font-size: 1.3rem;
     margin: .5em 0;
     padding:1em 2em;
     cursor: pointer;
-    background-color: #efefef;
-}
-.custom-upload-btn:hover{
     background-color: #b7b7b7;
+}
+.custom-upload-btn:hover, button:hover{
+    background-color: #5dc0d9;
 }
 .delete{
     background:none;
