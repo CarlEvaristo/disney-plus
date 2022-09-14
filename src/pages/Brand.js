@@ -18,7 +18,7 @@ export default function Brand() {
         ScrollTop()
     },[])
 
-    const films = context.allFetched ? context.movies : []  //important short circuiting in case the data is not yet here
+    const films = context.movies ? context.movies : []  //important short circuiting in case the data is not yet here
     const filmsElements = films.map(film => {
         if (film.channel === brand) {
             return <FilmImage film={film} key={film.imdbID} />

@@ -5,7 +5,7 @@ export default function FilmImage({film}){
     return (
         <div className="filmBox" >
             <Link to={`/films/${film.imdbID}`}>
-                <img src={film.Poster} alt={film.Title} />
+                <img src={film.poster} alt={film.title} />
 
             </Link>
         </div>
