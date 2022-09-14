@@ -41,6 +41,7 @@ export default function UploadForm() {
         year: "",
         imdbID: "",
         channel: "",
+        description: "",
         poster: ""
     })
     const [movies, setMovies] = React.useState([])
@@ -53,6 +54,7 @@ export default function UploadForm() {
             year: "",
             imdbID: "",
             channel: "",
+            description: "",
             poster: ""
         })
         setMovies([])
@@ -64,7 +66,7 @@ export default function UploadForm() {
         //=> getDocs method: CRUD: READ ALL DOCUMENTS (records) in collection
         const data = await getDocs(moviesCollectionRef)
         setMovies(data.docs.map(doc => ({...doc.data(), id:doc.id})))  //.data() method return fields from document (name/age) 
-      }
+    }
     
     React.useEffect(()=> {
         readMovies()
@@ -105,7 +107,7 @@ export default function UploadForm() {
                 <input type="text" name="title" placeholder="Title..." onChange={handleChange} value={newMovie.title} />
                 <input type="number" name="year" placeholder="Year..." onChange={handleChange} value={newMovie.year} />
                 <input type="text" name="imdbID" placeholder="IMDB id..." onChange={handleChange} value={newMovie.imdbID} />
-                {/* <input type="text" name="channel" placeholder="channel..." onChange={handleChange} value={newMovie.channel} /> */}
+                <input type="text" name="description" placeholder="Description..." onChange={handleChange} value={newMovie.description} />
                 <select value={newMovie.channel} onChange={handleChange} name="channel" >
                     <option value="">-- Channel... --</option>  
                     <option value="disney">Disney</option>       

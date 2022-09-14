@@ -194,10 +194,10 @@ main{
 }
 .carousel-actions{
     display: flex;
-    width: 100%;
+    width: 110%;
     justify-content: space-between;
     position: absolute;
-    top: 29%;
+    top: 22%;
 }
 .carousel-actions button {
     margin:0.5em;
