@@ -442,6 +442,10 @@ input[type="file"] {
 
 
 @media (max-width:600px) {
+    form{
+        width:90vw;
+    }
+
     .generalBgSettings {
         background-size: contain;
         background-size: 140%;
