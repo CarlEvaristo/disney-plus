@@ -8,6 +8,7 @@ import Favorites from "./pages/Favorites"
 import Header from "./components/Header"
 import Brand from "./pages/Brand"
 import Background from "./components/Background"
+import Admin from "./pages/Admin"
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/films/:id" element={ <Detail /> } />
         <Route path="/search" element={ <Search /> } />
         <Route path="/favorites" element={ <Favorites /> } />
+        <Route path="/admin" element={ <Admin /> } />
       </Routes>
     </div>
   )

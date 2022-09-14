@@ -19,7 +19,7 @@ export default function Header() {
     return (
         <header className={headerBgClass}>
             <Link to="/"> <img src="/images/disney-plus-logo.png" alt="disney-logo" /> </Link>
-            {!menuOn ?
+            {!menuOn &&
                 <>
                 <div className="headerMenu">
                     <Link to="/"><i className="menuIcon fa-solid fa-house fa-sm"></i> <span className="menuItemTxt">HOME</span></Link>
@@ -31,18 +31,15 @@ export default function Header() {
                 {(path !== "/") && <SignIn  location="header"/>}  {/* (path !== "/") => only show sign in/out on content pages => not on home page */}
                 </div> 
                 </>
-                :
-                <div className="menu moveDown">
+            }            
+            <div className={`mobileMenu ${menuOn && "moveDown"}`}  onClick={toggleMenu} >
                     <Link to="/"><span className="menuItemTxt">HOME</span></Link>
                     <Link to="/search"><span className="menuItemTxt">SEARCH</span></Link>
                     <Link to="/favorites"><span className="menuItemTxt">MY FAVORITES</span></Link>
                     <Link to="/films"><span className="menuItemTxt">FILMS</span></Link>
                     <SignIn location="header"/>
-                </div> 
-            }
- 
+            </div> 
             
-
 
             <div className={`hamburgerBtn`} onClick={toggleMenu}>
                 <div className={`hamburgerBar ${menuOn ? "topBar" : undefined}`}></div>

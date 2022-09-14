@@ -4,12 +4,12 @@ export default function Caroussel(){
     const [currentSlide, setCurrentSlide] = React.useState(0)
 
     const slides = [
-        "./images/caroussel-1.jpg", 
-        "./images/caroussel-2.jpg",
-        "./images/caroussel-3.jpg",
-        "./images/caroussel-4.jpg",
-        "./images/caroussel-5.jpg",
-        "./images/caroussel-6.jpg"
+        "./images/caroussel/caroussel-1.jpg", 
+        "./images/caroussel/caroussel-2.jpg",
+        "./images/caroussel/caroussel-3.jpg",
+        "./images/caroussel/caroussel-4.jpg",
+        "./images/caroussel/caroussel-5.jpg",
+        "./images/caroussel/caroussel-6.jpg"
     ]
 
     const totalImages = slides.length
