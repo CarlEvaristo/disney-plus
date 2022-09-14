@@ -10,6 +10,7 @@ export default function Brand() {
     const context = React.useContext(ThemeContext)
 
     React.useEffect(()=>{
+        context.toggleChannel(null)
         ScrollTop()
     },[])
 

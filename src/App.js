@@ -7,16 +7,12 @@ import Search from "./pages/Search"
 import Favorites from "./pages/Favorites"
 import Header from "./components/Header"
 import Brand from "./pages/Brand"
-import { ThemeContext } from "./context"
 import Background from "./components/Background"
 
 function App() {
-  const context = React.useContext(ThemeContext)
-  // const backGround = context.channel !== null ? `${context.channel}Bg` : "background" 
 
   return (
-    // <div className={backGround}>   
-    <div style={Background()}>   
+    <div style={Background()} className="generalBgSettings"  >   
       <Header/>
       <Routes>
         <Route exact path="/" element={ <Home /> } />
