@@ -324,9 +324,8 @@ main{
 
 .loginPopup {
     margin:0 3em;
+    background-color: #f0f0f0;
     color:rgb(255, 255, 255);
-    background: none;
-    margin: 0 3em;
     font-size: 1.3rem;
     letter-spacing: 1.22px;
     line-height: 1.07;
@@ -515,6 +514,7 @@ input[type="file"] {
     transform: scale(1.3);
     transition: transform 0.3s ease-in-out;
 }
+
 .adminBox {
     border-bottom: #42444f solid 1px;
 }
@@ -546,7 +546,16 @@ input[type="file"] {
     form{
         width:90vw;
     }
-
+    .flexWrapper{
+        flex-direction: column;
+        width:100%;
+    }
+    .popupInput{
+        margin:1em 0;
+    }
+    .loginPopup {
+        margin:1em;
+    }
     .generalBgSettings {
         background-size: contain;
         background-size: 140%;

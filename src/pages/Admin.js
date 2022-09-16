@@ -171,7 +171,7 @@ export default function Admin() {
                         <p>Year: {movie.year}</p>
                         <p>imdbID: {movie.imdbID}</p>
                         <p>Channel: {movie.channel}</p>
-                        <button onClick={() => deleteMovie(movie.id)} className="delete">Delete Movie</button>
+                        <button onClick={() => deleteMovie(movie.id)} className="formBtn">Delete Movie</button>
 
                         </div>
                         )) 
@@ -185,7 +185,7 @@ export default function Admin() {
                             <p>User email: {user.email}</p>
                             <p>Admin: {user.admin ? "Yes" : "No"}</p>
                             <p>Favorites: {user.favorites}</p>
-                            <button onClick={() => makeAdmin(user.id, user.admin)} className="delete">{user.admin ? "Remove" : "Make"} Admin</button>
+                            <button onClick={() => makeAdmin(user.id, user.admin)} className="formBtn">{user.admin ? "Remove" : "Make"} Admin</button>
                         </div>
                         )) 
                     }

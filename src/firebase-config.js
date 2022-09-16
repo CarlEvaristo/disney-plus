@@ -93,19 +93,20 @@ function SignIn({location})  {    // SIGN IN  COMPONENT (SIGN IN BUTTON(S))
     return (
         !user ? (location === "popup" &&
         <>
-            <h3>Login with Google or Anonymously</h3>
+            {!showRegister && <>
+            <h3>Login with Google</h3>
             <div className="flexWrapper">
                 <button onClick={signInWithGoogle} className="loginPopup"><i className="menuIcon fa-brands fa-google"></i> GOOGLE </button>
-                <button onClick={signInAnonymous} className="loginPopup"><i className="menuIcon fa-solid fa-user-secret"></i> ANONYMOUS</button>
             </div>
+            </>}
 
             {showRegister && <>
             <h3>Register New User</h3>
             <div className="flexWrapper">
-                <input type="email" placeholder="Your email..." onChange={(event)=>setRegisterEmail(event.target.value)} value={registerEmail} required />
-                <input type="password" placeholder="Your password..."  onChange={(event)=>setRegisterPassword(event.target.value)} value={registerPassword} required />
+                <input className="popupInput" type="email" placeholder="Your email..." onChange={(event)=>setRegisterEmail(event.target.value)} value={registerEmail} required />
+                <input className="popupInput" type="password" placeholder="Your password..."  onChange={(event)=>setRegisterPassword(event.target.value)} value={registerPassword} required />
             </div>
-            <button onClick={register}>Create User</button>
+            <button onClick={register} className="loginPopup">SIGN UP</button>
             </>} 
             
             {!showRegister && <>
