@@ -43,14 +43,19 @@ export default function Detail() {
     }
 
     function isFavorite(){
-        const favoMovies = users.length && (users.filter(user => user.uid === context.user.uid))[0].favo || []
+        const userId = users && context.user ? users.filter(user => user.uid === context.user.uid)[0] : []
+        const favoMovies = userId && userId.favo || []
         favoMovies.length && setIsFavo(favoMovies.includes(id) ? true : false)
+
+        // const favoMovies = users.length && (users.filter(user => user.uid === context.user.uid))[0].favo || []
+        // favoMovies.length && setIsFavo(favoMovies.includes(id) ? true : false)
     }
 
-    function addFavo(id) {
+    function addFavo(imdbID) {
         const userId = (users.filter(user => user.uid === context.user.uid))[0].id
         const favoMovies = (users.filter(user => user.uid === context.user.uid))[0].favo || []
-        const newFavoMovies = !favoMovies.includes(id) ? [...favoMovies, id] : [...favoMovies]
+
+        const newFavoMovies = !favoMovies.includes(imdbID) ? [...favoMovies, id] : [...favoMovies]
         //=> updateDoc method: CRUD: UPDATE DOCUMENT => LET OP UPDATE HEEFT "DOC" NODIG
         const userDoc = doc(db, "users", userId)  // doc() METHOD GET A DOCUMENT (ARGS: DB, COLLECTION, DOC ID)
         updateDoc(userDoc, {favo: newFavoMovies})    //promiss (but I don't use the response here (.then/.catch)

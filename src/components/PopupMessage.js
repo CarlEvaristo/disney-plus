@@ -10,7 +10,7 @@ export default function PopUpMessage({message, toggle}) {
 
     return (showPopUp && 
                 <div id="overlay" onClick={handleClick}>
-                    <div className="popup popupMsg" onClick={handleClick}>  {/* onClick={e => e.stopPropagation()} turned off here-> user has to be able to close modal asap with any click//when clicking the overlay close modal => but not after clicking modal itself !! */}
+                    <div className="popup popupMsg" >  {/* onClick={e => e.stopPropagation()} turned off here-> user has to be able to close modal asap with any click//when clicking the overlay close modal => but not after clicking modal itself !! */}
                         <h3>{message}</h3>
                     </div>
                 </div>
