@@ -505,17 +505,17 @@ input[type="file"] {
     background-color: #5dc0d9;
 }
 .delete{
+    z-index: 100;
     position: absolute;
     cursor: pointer;
-    bottom:25px;
     text-transform: uppercase;
     padding: 0.5em 0.7em;
     font-size:1.7rem;
     font-weight: 700;
     color: #fff;
     background-color: #000;
-    margin-left: 1.5em;
-    margin-bottom: 50px;
+    margin-top: 15px;
+    margin-left: 250px;
     border: #fff 1.8px solid;
     border-radius: 100%;
 }
@@ -710,5 +710,9 @@ input[type="file"] {
     }
     .searchBar {
         font-size: 30px;
+    }
+    .delete{
+        margin-top: 10px;
+        margin-left: 125px;
     }
 }

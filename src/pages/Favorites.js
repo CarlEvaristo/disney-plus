@@ -49,9 +49,8 @@ export default function Favorites() {
     const favoMovies = films.filter(film => favoIds.includes(film.imdbID))
     const filmsElements = favoMovies.map(film => (
         <div key={film.id} onClick={() => deleteFavo(film.imdbID)} >
-            <FavoImage film={film} key={film.imdbID} deleteFavo={deleteFavo}/>
             <button className="delete"><i class="fa-solid fa-minus"></i></button>
-
+            <FavoImage film={film} key={film.imdbID} deleteFavo={deleteFavo}/>
         </div>)
     )
     
