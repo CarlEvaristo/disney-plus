@@ -17,15 +17,16 @@ export default function Header() {
     const path = location.pathname
 
     return (
-        <header className={headerBgClass}>
+        <header className={headerBgClass} style={{backgroundColor: path === "/admin" && "black" }}>
             <Link to="/"> <img src="/images/disney-plus-logo.png" alt="disney-logo" /> </Link>
             {!menuOn &&
                 <>
                 <div className="headerMenu">
-                    <Link to="/"><i className="menuIcon fa-solid fa-house fa-sm"></i> <span className="menuItemTxt">HOME</span></Link>
-                    <Link to="/search"><i className="menuIcon fa-solid fa-magnifying-glass fa-sm"></i> <span className="menuItemTxt">SEARCH</span></Link>
-                    <Link to="/favorites"><i className="menuIcon fa-solid fa-plus fa-sm"></i> <span className="menuItemTxt">MY FAVORITES</span></Link>
-                    <Link to="/films"><span className="menuItemTxt">FILMS</span></Link>
+                    <Link to="/"><i className="menuIcon fa-solid fa-house fa-sm"></i> <span className="menuItemTxt">home</span></Link>
+                    <Link to="/search"><i className="menuIcon fa-solid fa-magnifying-glass fa-sm"></i> <span className="menuItemTxt">search</span></Link>
+                    <Link to="/favorites"><i className="menuIcon fa-solid fa-plus fa-sm"></i> <span className="menuItemTxt">my favorites</span></Link>
+                    <Link to="/films"><span className="menuItemTxt">films</span></Link>
+                    {(path !== "/") && <Link to="/admin"><span className="menuItemTxt">admin</span></Link>}
                 </div> 
                 <div className="headerMenu">
                 {(path !== "/") && <SignIn  location="header"/>}  {/* (path !== "/") => only show sign in/out on content pages => not on home page */}
@@ -33,10 +34,11 @@ export default function Header() {
                 </>
             }            
             <div className={`mobileMenu ${menuOn && "moveDown"}`}  onClick={toggleMenu} >
-                    <Link to="/"><span className="menuItemTxt">HOME</span></Link>
-                    <Link to="/search"><span className="menuItemTxt">SEARCH</span></Link>
-                    <Link to="/favorites"><span className="menuItemTxt">MY FAVORITES</span></Link>
-                    <Link to="/films"><span className="menuItemTxt">FILMS</span></Link>
+                    <Link to="/"><span className="menuItemTxt">home</span></Link>
+                    <Link to="/search"><span className="menuItemTxt">search</span></Link>
+                    <Link to="/favorites"><span className="menuItemTxt">my favorites</span></Link>
+                    <Link to="/films"><span className="menuItemTxt">films</span></Link>
+                    <Link to="/admin"><span className="menuItemTxt">admin</span></Link>
                     <SignIn location="header"/>
             </div> 
             

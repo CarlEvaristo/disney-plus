@@ -14,7 +14,7 @@ export default function Brand() {
         ScrollTop()
     },[])
 
-    const films = context.allFetched ? context.movies : []  //important short circuiting in case the data is not yet here
+    const films = context.movies || []  //important short circuiting in case the data is not yet here
     const filmsElements = films.map(film => <FilmImage film={film} key={film.imdbID} /> )
     
     const scrollDarken = ScrollDarken()
@@ -23,7 +23,7 @@ export default function Brand() {
         <main className={scrollDarken}> 
             <div className="noHero"></div>
             <div className="container">
-                <h1>Films</h1>
+                <h1>All Films</h1>
                 <div className="filmsContainer">
                     {filmsElements}
                 </div>

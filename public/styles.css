@@ -18,11 +18,12 @@ body{
 }
 a{
     text-decoration: none;
+    color: #c5c5c5;
 }
 h1{
     font-size: 4.5rem;
     letter-spacing: .11px;
-    color: #f9f9f9;
+    color: #e0e0e0;
     margin: 1em 0;
     text-align: left;
 }
@@ -67,6 +68,7 @@ header img {
     display:flex;
 }
 .menuItemTxt {
+    text-transform: uppercase;
     padding: 0 3em 0 0;
     font-size:1.3rem;
     letter-spacing: 1.42px;
@@ -197,7 +199,7 @@ main{
     width: 100%;
     justify-content: space-between;
     position: absolute;
-    top: 22%;
+    top: 27%;
 }
 .carousel-actions button {
     margin:0.5em;
@@ -283,12 +285,13 @@ main{
     transform: scale(1.05);
     transition: transform 0.3s ease-out, outline 0.3s ease-out;
 }
-.filmBox img {
+.filmBox img, .detailBox img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
 }
+
 
 /* ---------- AUTHENTICATION / POP UP ---------- */
 
@@ -350,7 +353,7 @@ main{
     align-items: center;
     text-align: center;
     width: 500px;
-    height:350px;
+    height: 500px;
     border-radius:10px;
     border: #fff 8px solid;
     box-shadow: 4px 4px 10px black;
@@ -371,12 +374,30 @@ main{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     transition: box-shadow 0.2s ease-out;
 }
+.popupMsg {
+    padding: 2em 0;
+    height:fit-content;
+}
+.flexWrapper {
+    display: flex;
+}
+.popupInput {
+    background-color: #f9f9f9;
+    margin: 0 0.5em;
+}
 
 /* ---------- DETAIL PAGE ---------- */
 
+.detailBox {
+    width: 277px;
+    height:400px;
+    box-shadow: rgba(0, 0, 0, 0.785) 10px 10px 70px 4px;
+    border-radius: 5px;
+    overflow: hidden;
+    }
 .detailContainer{
     width: 90vw;
-    height:90vh;
+    min-height:90vh;
     position: relative;
     display:flex;
     justify-content:flex-start;
@@ -390,19 +411,62 @@ main{
 .detailTxt{
     width: 50vw;
 }
-.detailTxtPoster{
+.trailerBtn {
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 1em 1.5em;
+    font-size:1.5rem;
+    letter-spacing: 1.42px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #000;
+    margin-left: 1.5em;
+    border: #fff 1.8px solid;
+    border-radius: 5px;
 }
-
+.favoBtn {
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 0.5em 0.7em;
+    font-size:1.7rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: #000;
+    margin-left: 1.5em;
+    border: #fff 1.8px solid;
+    border-radius: 100%;
+}
+.favoBtnDisabled {
+    pointer-events: none;
+    cursor: default;
+    background-color: rgb(121, 121, 121);
+    border-color: rgb(180, 180, 180);
+    color: rgb(180, 180, 180);
+}
+.trailerBtn:hover, .favoBtn:hover {
+    background-color: #fff;
+    color:#000;
+    transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+.detailHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center ;
+    margin-bottom: 1em;
+}
+.detailHeader h1 {
+    margin: 0;
+}
 
 /* ---------- ADMIN PAGE ---------- */
 
 
-form{
+.adminForm {
     width:50vw;
     display: flex;
     flex-direction: column;
 }
-input, select, button {
+input, select, .formBtn {
     padding:1em 2em;
     border:none;
     margin: .5em 0;
@@ -410,17 +474,17 @@ input, select, button {
 input:focus, select:focus{
     background-color: #d8f7ff;
 }
-button {
+.formBtn {
     cursor: pointer;
 }
-button:hover{
+.formBtn:hover{
     background-color: #b7b7b7;
 }
 input[type="file"] {
     padding:1em 2em;
     background-color: #efefef30;
 }
-.custom-upload-btn,button {
+.custom-upload-btn, .formBtn {
     text-align: center;
     font-size: 1.3rem;
     margin: .5em 0;
@@ -428,21 +492,55 @@ input[type="file"] {
     cursor: pointer;
     background-color: #b7b7b7;
 }
-.custom-upload-btn:hover, button:hover{
+.custom-upload-btn:hover, .formBtn:hover{
     background-color: #5dc0d9;
 }
 .delete{
-    background:none;
-    padding:0;
-    color:rgb(185, 24, 24);
+    position: absolute;
+    cursor: pointer;
+    bottom:25px;
+    text-transform: uppercase;
+    padding: 0.5em 0.7em;
+    font-size:1.7rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: #000;
+    margin-left: 1.5em;
+    margin-bottom: 50px;
+    border: #fff 1.8px solid;
+    border-radius: 100%;
 }
-.progress-bar {
-    height:5px;
-    background:blue;
-    margin-top:20px;
+.delete:hover {
+    background-color: rgb(179, 19, 19);
+    transform: scale(1.3);
+    transition: transform 0.3s ease-in-out;
+}
+.adminBox {
+    border-bottom: #42444f solid 1px;
 }
 
+/* ---------- SEARCH PAGE ---------- */
 
+.searchBar {
+    margin-top:50px;
+    width: 100vw;
+    height:150px;
+    font-size: 44px;
+    letter-spacing: .11px;
+    font-weight: 700;
+    line-height: 1.2;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+    outline: none;
+    border: none;
+    background: rgb(75, 78, 90);
+    color: rgb(168, 169, 173);
+    height: 60px;
+    padding-left: calc(3.5vw + 24px);
+}
+.searchBar:focus{
+    background: rgb(255, 255, 255);
+    color: rgb(78, 79, 81);
+}
 
 @media (max-width:600px) {
     form{
@@ -472,7 +570,7 @@ input[type="file"] {
         color:#fff;
         background-color: rgb(0, 0, 0);
         box-shadow:nhsla(0, 0%, 86%, 0.267);
-        transform:translateY(-130px);
+        transform:translateY(-137px);
         transition: transform 0.8s;
         visibility:none;
     }
@@ -512,7 +610,7 @@ input[type="file"] {
         height:250px;
     }
     .carousel-actions{
-        top: 17.5%;
+        top: 20%;
     }
     .carousel-actions button {
         font-size:2rem;
@@ -565,5 +663,34 @@ input[type="file"] {
     }
     .menuItemTxt {
         padding:0;
+    }
+    .detailContainer{
+        flex-direction: column;
+        height:auto;
+        margin:100px 0;
+    }
+    .detailTxt{
+        width: 90vw;
+        flex-direction: column;
+    }
+    .detailHeader h1 {
+        width:100%;
+    }
+    .detailHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .detailPoster, .detailPoster img{
+        width:100%;
+        order:10;
+    }
+    .detailBtns{
+        height:80px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .trailerBtn {
+        margin-left: 0;
     }
 }

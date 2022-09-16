@@ -1,6 +1,6 @@
 import React from "react"
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore"// firestore crud methods
-import {db} from "./firebase-config"    
+import { db } from "./firebase-config"    
 
 const ThemeContext = React.createContext()
 const moviesCollectionRef = collection(db, "movies")   
@@ -10,7 +10,6 @@ function ThemeContextProvider(props) {
     const [movies, setMovies] = React.useState()
     const [scrolled, setScrolled] = React.useState(0)
     const [channel, setChannel] = React.useState(null)
-    // const [allFetched, setAllFetched] = React.useState(false)
 
     async function readMovies() {
         //=> getDocs method: CRUD: READ ALL DOCUMENTS (records) in collection
@@ -21,7 +20,7 @@ function ThemeContextProvider(props) {
     React.useEffect(()=> {
         readMovies()
     },[])   // only runs initially
-
+    
 
     // const movieTitles = {
     //     pixar: ["Lightyear", "Luca", "Turning Red", "Soul", "Onward", "Coco", "Toy Story 4", "Cars 3", "Incredibles 2", "Inside Out", "The Good Dinosaur", "Finding Dory", "Monsters University", "Brave", "Cars 2", "Ratatouille", "Cars", "WALL-E", "Toy Story 3", "The Incredibles", "Finding Nemo"],
@@ -46,9 +45,13 @@ function ThemeContextProvider(props) {
     function toggleChannel(channel){
         setChannel(channel)
     }
+    function userSetter(input) {
+        setUser(input)
+    }
+
     
     return (
-        <ThemeContext.Provider value={{movies, scrolled, channel, toggleChannel, user, setUser}}>		
+        <ThemeContext.Provider value={{movies, scrolled, channel, toggleChannel, user, userSetter}}>		
             {props.children}
         </ThemeContext.Provider>
     )

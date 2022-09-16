@@ -4,7 +4,7 @@ import { ThemeContext } from "../context"
 export default function Background() {
     const context = React.useContext(ThemeContext)
         
-    const backGround = context.channel === "admin" ? {background: "grey"} : context.channel !== null ? 
+    const backGround = context.channel === "admin" ? {backgroundImage: `linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)`} : context.channel !== null ? 
         {backgroundImage: `linear-gradient(to bottom, 
             rgba(0, 0, 0, 0.74) 3vh, 
             rgba(0, 0, 0, 0.353) 13vh,

@@ -15,12 +15,13 @@ export default function PopUp() {
         !showPopUp && navigate('/')
     },[showPopUp])
 
-    return (!context.user && showPopUp) && ( 
+
+    return ((!context.user && showPopUp) && 
             <div id="overlay" onClick={handleClick}>
                 <div className="popup" onClick={e => e.stopPropagation()}>  {/* //when clicking the overlay close modal => but not after clicking modal itself !! */}
-                    <h1 style={{color:"black"}}>Please login</h1>
                     <SignIn location="popup"/>
                 </div>
             </div>
-    )
+            )
+    
 }
