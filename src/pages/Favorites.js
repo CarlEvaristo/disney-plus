@@ -4,6 +4,7 @@ import FilmImage from "../components/FilmImage"
 import ScrollDarken from "../hooks/useScrollDarken"
 import ScrollTop from "../hooks/useScrollTop"
 import PopUp from "../components/Popup"
+import PopUpMessage from "../components/PopupMessage"
 ////////////////import to save favo movie for current user to database
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore"// firestore crud methods
 import {db} from "../firebase-config"  
@@ -15,7 +16,7 @@ export default function Favorites() {
 
     const context = React.useContext(ThemeContext)
     const films = context.movies || []
-
+    const [showPopup, setShowPopup] = React.useState(false)
     ////////////////code to save favo movie for current user to database
     const usersCollectionRef  = collection(db, "users")
     const [users,setUsers] = React.useState([])
@@ -42,7 +43,12 @@ export default function Favorites() {
         const userDoc = doc(db, "users", id)  // doc() METHOD GET A DOCUMENT (ARGS: DB, COLLECTION, DOC ID)
         updateDoc(userDoc, {favo: newFavoMovies})    //promiss (but I don't use the response here (.then/.catch)
         readUsers()
+        setShowPopup(true)
     }   
+
+    function togglePopup(){
+        setShowPopup(prevValue => !prevValue)
+    }
 
     const currUser = users && context.user ? users.filter(user => user.uid === context.user.uid)[0] : []
     const favoIds = currUser && currUser.favo || []
@@ -55,8 +61,9 @@ export default function Favorites() {
     )
     
     return ( 
-        <>
-          { context.user ? 
+        <> 
+            { showPopup ? <PopUpMessage message={"Movie removed from your favourites"} toggle={togglePopup}/> :
+            context.user ? 
             <main className={scrollDarken}> 
                 <div className="noHero"></div>
                 <div className="container">
