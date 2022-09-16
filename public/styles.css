@@ -708,5 +708,7 @@ input[type="file"] {
         width: 40vw;
         height:21vw;
     }
-
+    .searchBar {
+        font-size: 30px;
+    }
 }

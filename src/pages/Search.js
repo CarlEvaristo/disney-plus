@@ -35,7 +35,7 @@ export default function Search() {
     return context.user ? (
         <main className={scrollDarken}> 
             <div className="noHero"></div>
-            <input className="searchBar" type="text" onChange={changeHandler} onKeyDown={clickHandler} placeholder="Search a movie.." required></input>
+            <input className="searchBar" type="text" onChange={changeHandler} onKeyDown={clickHandler} placeholder="Search a movie..." required></input>
             <div className="container">
                 <div className="filmsContainer">
                     {filmsElements}
