@@ -40,16 +40,13 @@ export default function Caroussel(){
 
     return (
             <div className="carousel">
-                <div 
-                className="carousel-inner"
-                style={{ transform: `translateX(${-currentSlide * 100}%)`}}
-                >   
+                <div className="carousel-inner" style={{ transform: `translateX(${-currentSlide * 100}%)`}} >   
                     {carousselElements}
                 </div>
-                <div className="carousel-actions">
+                {/* <div className="carousel-actions">
                     <button onClick={prevSlide} id="prevBtn"><i className="fa-sharp fa-solid fa-chevron-left"></i></button>
                     <button onClick={nextSlide} id="nextBtn"><i className="fa-sharp fa-solid fa-chevron-right"></i></button>
-                </div>
+                </div> */}
             </div>
     )
 }

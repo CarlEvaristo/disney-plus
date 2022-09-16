@@ -172,17 +172,16 @@ main{
     display: flex;
     justify-content: center;
     overflow: hidden;
-    width:90%;
+    width:90vw;
+    aspect-ratio: 4.5;
     outline:5px solid #dfdfdf00;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .carousel:hover {
-    outline:5px solid #dfdfdfde;
-    transition: outline 0.2s ease-out;
+    outline:5px  #dfdfdfde;
 }
 .carousel-item{
     display: inline-block;
-    width: 100%;
 }
 .carousel-item img{
     width: 100%;
@@ -198,7 +197,7 @@ main{
     width: 100%;
     justify-content: space-between;
     position: absolute;
-    top: 50%;
+    margin: auto 0;
 }
 .carousel-actions button {
     margin:0.5em;
@@ -220,7 +219,7 @@ main{
     padding: 50px 0;
     align-items: center;
     flex-wrap: wrap;
-    gap:10px;
+    gap:0px;
     row-gap: 30px;
 }
 .btnWrapper{
@@ -666,18 +665,6 @@ input[type="file"] {
         width:100%;
         margin:1em 0;
         padding-top:1em;
-    }
-    .carousel {
-        height:110px;
-        width:90%;
-    } 
-    .carousel-item{
-        display: inline-block;
-        width: 100%;
-    }
-    .carousel-item img{
-        width: 100%;
-        object-fit: cover;
     }
     .login {
         margin:0;
