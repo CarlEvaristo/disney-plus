@@ -8,7 +8,7 @@ export default function PopUp() {
     const [showPopUp, setShowPopUp] = React.useState(true)
     const navigate = useNavigate()
 
-    function handleClick() {
+    function handleClick(e) {
         setShowPopUp(false)
     }
     React.useEffect(()=>{

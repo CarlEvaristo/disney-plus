@@ -54,13 +54,13 @@ export default function Detail() {
     function addFavo(imdbID) {
         const userId = (users.filter(user => user.uid === context.user.uid))[0].id
         const favoMovies = (users.filter(user => user.uid === context.user.uid))[0].favo || []
-
         const newFavoMovies = !favoMovies.includes(imdbID) ? [...favoMovies, id] : [...favoMovies]
         //=> updateDoc method: CRUD: UPDATE DOCUMENT => LET OP UPDATE HEEFT "DOC" NODIG
         const userDoc = doc(db, "users", userId)  // doc() METHOD GET A DOCUMENT (ARGS: DB, COLLECTION, DOC ID)
         updateDoc(userDoc, {favo: newFavoMovies})    //promiss (but I don't use the response here (.then/.catch)
         setIsFavo(true)
         setShowPopup(true)
+
    }
    ///////////////////////
 
@@ -84,7 +84,7 @@ export default function Detail() {
                         <h1>{film.title}</h1>
                         <div className="detailBtns">
                             <a className="trailerBtn" href={`https://www.imdb.com/title/${film.imdbID}/`} target="_blank" >trailer</a>
-                            <button className={`favoBtn ${isFavo && "favoBtnDisabled"}`} onClick={(e) => addFavo(film.imdbID)} ><i className="fa-solid fa-plus"></i></button>
+                            <button className={`favoBtn ${isFavo && "favoBtnDisabled"}`} onClick={() => addFavo(film.imdbID)} ><i className="fa-solid fa-plus"></i></button>
                         </div>
                     </div>
                     <p>{film.description}</p>
