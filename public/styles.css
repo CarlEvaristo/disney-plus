@@ -550,6 +550,10 @@ input[type="file"] {
         flex-direction: column;
         width:100%;
     }
+    .popup {
+        height:90%;
+        width: 90%;
+    }
     .popupInput{
         margin:1em 0;
     }
