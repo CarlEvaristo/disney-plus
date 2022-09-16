@@ -161,34 +161,36 @@ export default function Admin() {
                             <button className="formBtn">Upload Movie</button>
                         </form>
                     </>}
-                    <br/>
-                    <br/>
-                    {movies.length !== 0 && <h2>Movies Data:</h2>}
-
-                    {movies.map(movie => (
-                        <div  className="adminBox" key={movie.id}>
-                        <p>Title: {movie.title}</p>
-                        <p>Year: {movie.year}</p>
-                        <p>imdbID: {movie.imdbID}</p>
-                        <p>Channel: {movie.channel}</p>
-                        <button onClick={() => deleteMovie(movie.id)} className="formBtn">Delete Movie</button>
-
+                    
+                    <div className="adminLists">
+                        <div className="adminUsers">
+                            {users.length !== 0 && <h2>Users Data:</h2>}
+                            {users.map(user => (
+                                <div className="adminBox" key={user.id}>
+                                    <p>User ID: {user.uid}</p>
+                                    <p>User email: {user.email}</p>
+                                    <p>Admin: {user.admin ? "Yes" : "No"}</p>
+                                    <p>Favorites: {user.favorites}</p>
+                                    <button onClick={() => makeAdmin(user.id, user.admin)} className="formBtn">{user.admin ? "Remove" : "Make"} Admin</button>
+                                </div>
+                                )) 
+                            }
                         </div>
-                        )) 
-                    }
-                    <br/>
-                    {users.length !== 0 && <h2>Users Data:</h2>}
-
-                    {users.map(user => (
-                        <div className="adminBox" key={user.id}>
-                            <p>User ID: {user.uid}</p>
-                            <p>User email: {user.email}</p>
-                            <p>Admin: {user.admin ? "Yes" : "No"}</p>
-                            <p>Favorites: {user.favorites}</p>
-                            <button onClick={() => makeAdmin(user.id, user.admin)} className="formBtn">{user.admin ? "Remove" : "Make"} Admin</button>
+                        <div className="adminMovies">
+                            {movies.length !== 0 && <h2>Movies Data:</h2>}
+                            {movies.map(movie => (
+                                <div  className="adminBox" key={movie.id}>
+                                    <p>Title: {movie.title}</p>
+                                    <p>Year: {movie.year}</p>
+                                    <p>imdbID: {movie.imdbID}</p>
+                                    <p>Channel: {movie.channel}</p>
+                                    <button onClick={() => deleteMovie(movie.id)} className="formBtn">Delete Movie</button>
+                                </div>
+                                )) 
+                            }
                         </div>
-                        )) 
-                    }
+
+                    </div>
                 </div>
 
             </div>
