@@ -93,20 +93,21 @@ function SignIn({location})  {    // SIGN IN  COMPONENT (SIGN IN BUTTON(S))
     return (
         !user ? (location === "popup" &&
         <>
-            {!showRegister && <>
+            {/* {!showRegister && <>
             <h3>Login with Google</h3>
             <div className="flexWrapper">
                 <button onClick={signInWithGoogle} className="loginPopup"><i className="menuIcon fa-brands fa-google"></i> GOOGLE </button>
+                <button onClick={signInAnonymous} className="loginPopup"><i className="menuIcon fa-solid fa-user-secret"></i> ANONYMOUS</button>
             </div>
-            </>}
+            </>} */}
 
             {showRegister && <>
             <h3>Register New User</h3>
             <div className="flexWrapper">
                 <input className="popupInput" type="email" placeholder="Your email..." onChange={(event)=>setRegisterEmail(event.target.value)} value={registerEmail} required />
                 <input className="popupInput" type="password" placeholder="Your password..."  onChange={(event)=>setRegisterPassword(event.target.value)} value={registerPassword} required />
+                <button onClick={register} className="loginPopup">SIGN UP</button>
             </div>
-            <button onClick={register} className="loginPopup">SIGN UP</button>
             </>} 
             
             {!showRegister && <>
@@ -114,8 +115,8 @@ function SignIn({location})  {    // SIGN IN  COMPONENT (SIGN IN BUTTON(S))
             <div className="flexWrapper">
                 <input className="popupInput" type="email" placeholder="Your email..." onChange={(event)=>setLoginEmail(event.target.value)} value={loginEmail} required />
                 <input className="popupInput" type="password" placeholder="Your password..." onChange={(event)=>setLoginPassword(event.target.value)} value={loginPassword} required />
+                <button onClick={login} className="loginPopup">LOGIN</button>
             </div>
-            <button onClick={login} className="loginPopup">LOGIN</button>
             <p>No account? <a href="#" onClick={()=>setShowRegister(true)}>Create one!</a></p>
             </>}
         </> ) : 
@@ -127,3 +128,5 @@ function SignIn({location})  {    // SIGN IN  COMPONENT (SIGN IN BUTTON(S))
 } 
 
 export { app, db, storage, SignIn, auth, useAuthState } 
+
+
